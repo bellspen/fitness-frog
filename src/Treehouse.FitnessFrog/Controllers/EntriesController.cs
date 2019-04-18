@@ -44,7 +44,13 @@ namespace Treehouse.FitnessFrog.Controllers
             return View();
         }
 
-        public ActionResult Edit(int? id)
+        [ActionName("Add"), HttpPost]
+        public ActionResult AddPost()
+        {
+            return View();
+        }
+
+        public ActionResult Edit(int? id) // ? means nullable, allows entries to be successfully passed action methods
         {
             if (id == null)
             {
