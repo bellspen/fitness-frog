@@ -41,13 +41,24 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Add()
         {
-            return View();
+            var entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+
+
+            return View(entry);
         }
 
         [HttpPost]
-        public ActionResult Add(DateTime ? date, int ? activityId, double ? duration, Entry.IntensityLevel ? intensity, bool ? exclude, string notes)
+        public ActionResult Add(Entry entry)//(DateTime ? date, int ? activityId, double ? duration, Entry.IntensityLevel ? intensity, bool ? exclude, string notes)
         {
-           
+           if(ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
+
+                //TODO Display the Entries list page
+            }
             //string date = Request.Form["Date"]; //ActiityID, Duration, Intensity, Exlude, Notes
             //ViewBag.Date = ModelState["Date"].Value.AttemptedValue;
             //ViewBag.ActivityId = ModelState["ActivityId"].Value.AttemptedValue;
@@ -56,7 +67,7 @@ namespace Treehouse.FitnessFrog.Controllers
             //ViewBag.Exclude = ModelState["Exclude"].Value.AttemptedValue;
             //ViewBag.Notes = ModelState["Notes"].Value.AttemptedValue;
 
-            return View();
+            return View(entry);
         }
 
         public ActionResult Edit(int? id) // ? means nullable, allows entries to be successfully passed action methods
