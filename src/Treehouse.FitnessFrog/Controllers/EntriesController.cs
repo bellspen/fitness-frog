@@ -57,8 +57,12 @@ namespace Treehouse.FitnessFrog.Controllers
             {
                 _entriesRepository.AddEntry(entry);
 
+                return RedirectToAction("Index");
+
+                
                 //TODO Display the Entries list page
             }
+             
             //string date = Request.Form["Date"]; //ActiityID, Duration, Intensity, Exlude, Notes
             //ViewBag.Date = ModelState["Date"].Value.AttemptedValue;
             //ViewBag.ActivityId = ModelState["ActivityId"].Value.AttemptedValue;
