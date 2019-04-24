@@ -52,8 +52,13 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Exclude, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.Exclude, new { @class = "form-control" })
+                @*<input id="Exclude" name="Exclude" type="checkbox" value="true" /> Exclude*@
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.Exclude) @Html.DisplayNameFor(m => m.Exclude)
+                    </label>
+                </div>
+                
             </div>
 
         </div>
