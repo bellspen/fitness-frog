@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Date, new { @class = "control-label" }) <!--Landa: anonymous method, m is method parameter that is reference to our views model property, => operator is the transition from the parameter list to the method body, m.Date is the property on our model that were returning from our anonymous method. This approach gives a stronly typed way to specify the model property that we want to render a label for. Instead of having to just know what our field name is, VS is able to show us the list of available properties on our model -->
-                @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control" }) <!--"Date", null-->
+                @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" }) <!--"Date", null-->
 
             </div>
 
